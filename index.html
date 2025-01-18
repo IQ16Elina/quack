@@ -3,14 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quack!</title>
+    <title>Quack Black Hole VFX</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 id="title">Quack!</h1>
-        <img id="quack-image" src="quack-closed.png" alt="Quack Character" onclick="triggerQuack()">
-        <p id="click-count">Clicks: 0</p>
+    <div class="black-hole">
+        <div class="container">
+            <h1 id="title">Quack!</h1>
+            <img id="quack-image" src="quack-closed.png" alt="Quack Character" onclick="triggerQuack()">
+            <p id="click-count">Clicks: 0</p>
+
+            <!-- Dropdown for galaxy selection -->
+            <div class="galaxy-container">
+                <label for="galaxy-select">Select a Galaxy:</label>
+                <select id="galaxy-select" onchange="changeGalaxy()">
+                    <option value="">Choose a galaxy...</option>
+                    <option value="Milky Way">Milky Way</option>
+                    <option value="Andromeda">Andromeda</option>
+                    <option value="Sombrero">Sombrero</option>
+                    <option value="Whirlpool">Whirlpool</option>
+                    <option value="Triangulum">Triangulum</option>
+                    <option value="Messier 87">Messier 87</option>
+                    <option value="Pinwheel">Pinwheel</option>
+                    <option value="NGC 6744">NGC 6744</option>
+                    <option value="Tarantula">Tarantula</option>
+                    <option value="Virgo">Virgo</option>
+                </select>
+            </div>
+
+            <p id="selected-galaxy">Current Galaxy: None</p>
+        </div>
     </div>
 
     <audio id="quack-sound">
@@ -18,6 +40,34 @@
         Your browser does not support the audio element.
     </audio>
 
-    <script src="script.js"></script>
+    <script>
+        let clickCount = 0;
+        let selectedGalaxy = ""; // Variable to store selected galaxy
+
+        function triggerQuack() {
+            if (!selectedGalaxy) {
+                alert("Please select a galaxy first!");
+                return;
+            }
+
+            clickCount++;
+            document.getElementById('click-count').innerText = `Clicks: ${clickCount}`;
+            document.getElementById('selected-galaxy').innerText = `Current Galaxy: ${selectedGalaxy}`;
+
+            document.getElementById('quack-sound').play();
+
+            const quackImage = document.getElementById('quack-image');
+            quackImage.src = quackImage.src.includes('quack-closed.png') ? 'quack-open.png' : 'quack-closed.png';
+
+            setTimeout(() => {
+                quackImage.src = 'quack-closed.png'; // Reset image
+            }, 500); // Adjust timing if needed
+        }
+
+        function changeGalaxy() {
+            selectedGalaxy = document.getElementById('galaxy-select').value;
+            document.getElementById('selected-galaxy').innerText = `Current Galaxy: ${selectedGalaxy}`;
+        }
+    </script>
 </body>
 </html>

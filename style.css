@@ -1,0 +1,128 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    position: relative;
+    background-color: black; /* Solid black background */
+}
+
+/* Black Hole Effect */
+.black-hole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80vw;    /* 80% of the viewport width */
+    height: 70vh;   /* 70% of the viewport height */
+    background: url('black-hole-vfx.gif') no-repeat center center;
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    animation: zoomInOut 10s ease-in-out infinite;
+}
+
+/* Smooth zooming effect for black hole */
+@keyframes zoomInOut {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Transparent container for the character */
+.container {
+    text-align: center;
+    cursor: pointer;
+    padding: 40px;
+    border-radius: 20px;
+    animation: bounce 1s ease-in-out infinite alternate;
+    background-color: transparent; /* Transparent background */
+}
+
+/* Character image */
+#quack-image {
+    width: 250px;
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform-origin: center;
+    animation: shake 0.3s ease-in-out infinite alternate;
+}
+
+/* Title styling */
+#title {
+    font-size: 48px;
+    color: #FFD700; /* Golden color for contrast */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Click counter styling */
+#click-count {
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Galaxy Name Styling */
+#selected-galaxy {
+    font-size: 24px;
+    color: #FFD700; /* Golden color */
+    margin-top: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Styling for Galaxy Select */
+.galaxy-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#galaxy-select {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation for bounce */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* Animation for image shake */
+@keyframes shake {
+    0% { transform: rotate(-2deg); }
+    100% { transform: rotate(2deg); }
+}
+
+/* Pop effect on image click */
+#quack-image:active {
+    transform: scale(1.2);
+}
