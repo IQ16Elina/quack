@@ -1,0 +1,17 @@
+{
+  "name": "Quack Token",
+  "symbol": "QUACK",
+  "uri": "https://iq16elina.github.io/quack/quack-closed.png",
+  "sellerFeeBasisPoints": 500,
+  "creators": null,
+  "properties": {
+    "files": [
+      {
+        "uri": "https://iq16elina.github.io/quack/quack-closed.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "maxSupply": 100000000
+  }
+}
