@@ -1,0 +1,14 @@
+{
+  "name": "Quack",
+  "symbol": "QUACK",
+  "uri": "https://iq16elina.github.io/quack/metadata.json",
+  "seller_fee_basis_points": 500,
+  "creators": [
+    {
+      "address": "7p9jVCP4PuiSxW95eP6Mtuz9HfPw3LZSzpKigP4xdcN2",
+      "verified": true,
+      "share": 100
+    }
+  ]
+}
+
